@@ -1,0 +1,25 @@
+ <div id="hobby">
+ <div class="title"> <h1 class="hobby" >What I am passionate about</h1> </div>
+  <div class="hobby-container"> 
+    {{#if hasDatabaseError}}
+      <div>Sorry there was a problem with the database.
+        <br />
+        {{theError}}
+      </div>
+    {{else}}
+      {{#each hobbies}}
+        <div >
+          <p> The table doesn't show up, but it exists.</p>
+          <div class="drawings-container">
+            <div><img src="{{himgURL}}" alt="{{himgURL}}" /></div>
+            <h2>{{hname}} - {{htype}}</h2>
+            <br />
+            <div class="hdesc"><p>{{hdesc}}</p></div>
+            <br />
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+    
+  </div>
+</div>
