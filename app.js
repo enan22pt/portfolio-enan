@@ -1,64 +1,72 @@
 const express = require("express"); // loads the express package
+const session = require("express-session");
 const { engine } = require("express-handlebars"); // loads handlebars for Express
 const port = 8080; // defines the port
 const app = express(); // creates the Express application
-// const bcrypt = require("bcrypt"); //loads bcrypt
+const bodyParser = require("body-parser");
+const bcrypt = require("bcrypt"); //loads bcrypt
+const connectSqlite3 = require("connect-sqlite3");
+const SQLiteStore = connectSqlite3(session);
+// const cookieParser = require ("cookie-parser");
 
 // MODEL (DATA)
 const sqlite3 = require("sqlite3");
 const db = new sqlite3.Database("projects-en.db");
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // creates user table at startup
 db.run(
-  "CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT NOT NULL, password TEXT NOT NULL, email TEXT NOT NULL, is_admin INTEGER NOT NULL)",
+  "CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT NOT NULL, password TEXT NOT NULL, hash TEXT NOT NULL, is_admin INTEGER NOT NULL)",
   (error) => {
     if (error) {
       console.error("ERROR: ", error);
     } else {
       console.log("---> Table users created!");
-      const fiveUsers = [
+      const users = [
         {
           id: "1",
           username: "Admin",
           password: "TrueAdmin",
-          email: "true@admin.com",
+          hash: "TrueAdmin",
           is_admin: 1,
         },
         {
           id: "2",
           username: "OtherUser",
           password: "OtherUser1234",
-          email: "other@user.com",
+          hash: "OtherUser1234",
           is_admin: 0,
         },
         {
           id: "3",
           username: "OtherUser1",
-          password: "OtherUser2345!",
-          email: "other1@user.com",
+          password: "OtherUser2345",
+          hash: "OtherUser2345",
           is_admin: 0,
         },
         {
           id: "4",
           username: "OtherUser2",
           password: "OtherUser3456",
-          email: "other2@user.com",
+          hash: "OtherUser3456",
           is_admin: 0,
         },
         {
           id: "5",
           username: "OtherUser3",
           password: "OtherUser4567",
-          email: "other3@user.com",
+          hash: "OtherUser4567",
           is_admin: 0,
         },
       ];
-      fiveUsers.forEach((user) => {
-        // const hash = bcrypt.hashSync(user.password, 10);
+      users.forEach((user) => {
+        const hash = bcrypt.hashSync(user.password, 10);
 
         db.run(
-          "INSERT INTO users (id, username, password, email, is_admin) VALUES (?, ?, ?, ?, ?)",
-          [user.id, user.username, user.password, user.email, user.is_admin],
+          "INSERT INTO users (id, username, password, hash, is_admin) VALUES (?, ?, ?, ?, ?)",
+          [user.id, user.username, user.password, hash, user.is_admin],
           (error) => {
             if (error) {
               console.error("ERROR: ", error);
@@ -227,8 +235,57 @@ app.set("views", "./views");
 // define static directory "public" to access css/ and img/
 app.use(express.static("public"));
 
+//...
+// POST FORMS
+//...
+
+
+// Add the express-session middleware
+app.use(
+  session({
+    store: new SQLiteStore({ db: "session-db.db" }),
+    secret: "mamaligacucarnatisicucastravetimurati", // Replace with your secret key
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 // CONTROLLER (THE BOSS)
+
 // defines route "/"
+app.get("/login", function (request, response) {
+  const model = {};
+  response.render("login.handlebars", model);
+});
+app.post("/login", (req, res) => {
+  // Get username and password from request body
+  const username = req.body.username;
+  const password = req.body.password;
+
+  console.log("LOGIN: ", username);
+  console.log("PASSWORD: ", password);
+
+  // Requires bcrypt to be installed
+  // const hash = bcrypt.hashSync(password, 10);
+
+  // Requires a sqlite3 database
+  db.get("SELECT * FROM users WHERE username = ?", [username], (err, user) => {
+    if (err) {
+      res.status(500).send({ error: "Server error" });
+    } else if (!user) {
+      res.status(401).send({ error: "User not found" });
+    } else {
+      console.log("Stored username:", user.username);
+      console.log("Stored hashed password:", user.hash);
+      const result = bcrypt.compareSync(password, user.hash);
+      if (result) {
+        req.session.user = user;
+        res.redirect("/home");
+      } else {
+        res.status(401).send({ error: "Wrong password or username" });
+      }
+    }
+  });
+});
 app.get("/home", function (request, response) {
   response.render("home.handlebars");
 });

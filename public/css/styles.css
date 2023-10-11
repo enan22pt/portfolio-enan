@@ -202,3 +202,34 @@ padding: 5%;
     padding: 10px;
     height: 685px;
     }
+
+    #login{
+      margin: 10px;
+      background-color: #154e14ba;
+      border-radius: 20px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      justify-items: center;
+      text-align: center;
+      padding: 10px;
+      height: 685px;
+    }
+
+.log {
+   grid-column: 2;
+}    
+.style-log{
+   border-radius: 10px;
+}
+.log-text{
+   color: black;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 22px;
+}
+
+.button{
+   border-radius: 10px;
+}
+.button:hover{
+   background-color: #154e14ba;
+}

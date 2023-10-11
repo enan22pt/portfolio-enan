@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-</head>
-<body>
-    
-</body>
-</html>
+<div id="login">
+    <div class="log">
+     <div>
+        <h1>Log In</h1>
+    </div>       
+    <form action ="/login" method="post">
+    <fieldset >
+        <lable class="log-text" for="username">Username: </lable>
+        <input class="style-log" type="text" name="username" id="username" required="required">
+        <br/>
+        <label class="log-text" for="password">Password: </label>
+        <input class="style-log" type="password" name="password" id="password" required="required">
+        <br/>
+    </fieldset>
+    <input class="button" type="submit" value="Login">
+    </form>
+    </div>
+</div>
