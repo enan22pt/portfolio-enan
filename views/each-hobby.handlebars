@@ -1,0 +1,21 @@
+<div id="each-hobby">
+  <div class="title">
+    <h1 class="work">My Hobby</h1>
+  </div>
+  <div class="each-main-container">
+    {{#if hasDatabaseError}}
+      <div>Sorry, there was a problem with the database.
+        <br />
+        {{theError}}
+      </div>
+    {{else}}
+      <div class="each-project-container">
+        <div><img src="{{himgURL}}" alt="{{himgURL}}" /></div>
+        <h2>{{hname}} - {{htype}}</h2>
+        <br />
+        <div class="hdesc"><p>{{hdesc}}</p></div>
+        <br />
+      </div>
+    {{/if}}
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div id="each-project">
+  <div class="title">
+    <h1 class="work">My Project</h1>
+  </div>
+  <div class="each-main-container">
+    {{#if hasDatabaseError}}
+      <div>Sorry, there was a problem with the database.
+        <br />
+        {{theError}}
+      </div>
+    {{else}}
+      <div class="each-project-container">
+        <div><img src="{{pimgURL}}" alt="{{pimgURL}}" /></div>
+        <h2>{{pname}} - {{ptype}}</h2>
+        <br />
+        <div class="pdesc"><p>{{pdesc}}</p></div>
+        <br />
+      </div>
+    {{/if}}
+  </div>
+</div>

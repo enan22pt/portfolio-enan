@@ -1,0 +1,38 @@
+<div id="newproj">
+  <div class="project">
+    <h1>Make a new project</h1>
+  
+  <div>
+    {{#if isLoggedIn}}
+      {{#if isAdmin}}
+        <form id="new-project" action="/projects/new" method="post">
+          <fieldset>
+            <label class="log-text" for="projname">Project name: </label> <br/>
+            <input class="style-log" type="text" name="projname" id="projname" required="required"/> <br/>
+
+            <label class="log-text" for="projdesc">Project description: </label> <br/>
+            <textarea class="style-log" name="projdesc" id="projdesc" cols="30" rows="3" required="required"></textarea><br/>
+            
+            <label class="log-text" for="projtype">Project type: </label> <br/>
+            <select class="style-log" type="text" name="projtype" id="projtype" required="required">
+              <option value="other">Other</option>
+              <option value="university assignment">University assignment</option>
+            </select> <br/>
+
+            <label class="log-text" for="projimg">Project image URL: </label> <br/>
+            <input class="style-log" type="text" name="projimg" id="projimg" placeholder="/img/" required="required"/>
+          </fieldset>
+
+          <input class="button" type="submit" value="Add new project" />
+        </form>
+      {{else}}
+        <p>Only the admin can add a new project.</p>
+      {{/if}}
+    {{else}}
+      <p>Please login first <br/>
+        On the
+        <a href="/login">login page.</a></p>
+    {{/if}}
+  </div>
+  </div>
+</div>

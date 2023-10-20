@@ -1,0 +1,38 @@
+<div id="newhobby">
+  <div class="hobby">
+    <h1>Make a new hobby</h1>
+  
+  <div>
+    {{#if isLoggedIn}}
+      {{#if isAdmin}}
+        <form id="new-hobby" action="/hobbies/new" method="post">
+          <fieldset>
+            <label class="log-text" for="hobbyname">Hobby name: </label> <br/>
+            <input class="style-log" type="text" name="hobbyname" id="hobbyname" required="required"/> <br/>
+
+            <label class="log-text" for="hobbydesc">Hobby description: </label> <br/>
+            <textarea class="style-log" name="hobbydesc" id="hobbydesc" cols="30" rows="3" required="required"></textarea><br/>
+
+            <label class="log-text" for="hobbytype">Hobby type: </label> <br/>
+            <select class="style-log" type="text" name="hobbytype" id="hobbytype" required="required">
+              <option value="other">Other</option>
+              <option value="drawing">Drawing made by me</option>
+            </select> <br/>
+
+            <label class="log-text" for="hobbyimg">Hobby image URL: </label> <br/>
+            <input class="style-log" type="text" name="hobbyimg" id="hobbyimg" placeholder="/img/" required="required"/>
+          </fieldset>
+
+          <input class="button" type="submit" value="Add new hobby" />
+        </form>
+      {{else}}
+        <p>Only the admin can add a new hobby.</p>
+      {{/if}}
+    {{else}}
+      <p>Please login first <br/>
+        On the
+        <a href="/login">login page.</a></p>
+    {{/if}}
+  </div>
+  </div>
+</div>

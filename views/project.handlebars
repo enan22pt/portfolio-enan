@@ -1,6 +1,14 @@
 <div id="project">
- <div class="title"> <h1 class="work" >My work experience</h1> </div>
-  <div class="main-container"> 
+  <div class="title"> <h1 class="work">My work experience</h1> 
+      {{#if isAdmin}}
+    <div>
+      <a href="/projects/new" class="new-button"> New Project</a>
+    </div>
+    </div>
+  <div class="main-container">
+
+    {{/if}}
+
     {{#if hasDatabaseError}}
       <div>Sorry there was a problem with the database.
         <br />
@@ -8,17 +16,24 @@
       </div>
     {{else}}
       {{#each projects}}
-        <div >
+        <div>
           <div class="projects-container">
-            <div><img src="{{pimgURL}}" alt="{{pimgURL}}" /></div>
-            <h2>{{pname}} - {{ptype}}</h2>
-            <br />
-            <div class="pdesc"><p>{{pdesc}}</p></div>
-            <br />
+            <div><a href="/projects/{{pid}}"><img
+                  src="{{pimgURL}}"
+                  alt="{{pimgURL}}"
+                /></a></div>
+            <h2><a href="/projects/{{pid}}">{{pname}} - {{ptype}}</a></h2>
+          </div>
+          <div class="modify-delete">
+            {{#if ../isAdmin}}
+            <div>
+              <a href="/projects/update/{{pid}}">Modify</a> - <a href="/projects/delete/{{pid}}">Delete</a>
+            </div>
+            {{/if}}
           </div>
         </div>
       {{/each}}
     {{/if}}
-    
+
   </div>
 </div>

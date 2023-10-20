@@ -1,23 +1,46 @@
 <div id="about">
-        <h1 class="header">What have I been up to?</h1>
-            <div class="edu">
+  <div class="title-a"> <h1 class="about">What have I been up to?</h1></div>
 
-        <h2 class="edu-title">Got Some Education 🤓</h2>
-            <li>2022-present <strong>New Media Design student at Jönköping University</strong> </li>
-            <li>2021 <strong>Baccalaureat in Mathematics - Computer Science</strong> </li>
-            <li>*Working to get more if things go well =D*</li></div>
-    
+  <div class="about-container">
+    <div class="edu">
+      <h2 class="edu-title">Got Some Education 🤓</h2>
+      <li>2022-present
+        <strong>New Media Design student at Jönköping University</strong>
+      </li>
+      <li>2021
+        <strong>Baccalaureat in Mathematics - Computer Science</strong>
+      </li>
+      <li>*Working to get more if things go well =D*</li></div>
+
     <div class="other">
-        <h2 class="other-title">Other Achievements✨</h2>
-            <li><strong> Driver's License: AM, B1, B</strong> &lpar; dreaming about the A category 🏍️&rpar;</li>
-            <li>See more in <strong> <a href="/projects"> Projects </a></strong></li></div>
-    
-    <div class="funfacts">
-        <h2>Fun Facts About Me🤪</h2>
-        <li>I am 1.6 m 🙁</li>
-        <li>I like horror movies 👻</li>
-        <li>I like video games 👾</li>
-        <li>I like to use emojis ironically 😼</li>
-    </div>
+      <h2 class="other-title">Other Achievements✨</h2>
+      <li><strong> Driver's License: AM, B1, B</strong>
+        &lpar; dreaming about the A category 🏍️&rpar;</li>
+      <li>See more in
+        <strong> <a href="/projects"> Projects </a></strong></li></div>
+
+    <div class="skills-container">
+      {{#if hasDatabaseError}}
+        <div>Sorry there was a problem with the database.
+          <br />
+          {{theError}}
+        </div>
+      {{else}}
+        <h2 class="skills-title">Skills</h2>
+        {{#each skills}}
+          <div class="skills">
+            <li>{{sname}} - {{sdesc}}</li>
+          </div>
+        {{/each}}
+      {{/if}}
     </div>
 
+    <div class="funfacts">
+      <h2>Fun Facts About Me🤪</h2>
+      <li>I am 1.6 m 🙁</li>
+      <li>I like horror movies 👻</li>
+      <li>I like video games 👾</li>
+      <li>I like to use emojis ironically 😼</li>
+    </div>
+  </div>
+</div>

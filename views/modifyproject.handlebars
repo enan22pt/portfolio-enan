@@ -1,0 +1,39 @@
+<div id="modifyproj">
+  <div class="project">
+    <h1>Modify the project</h1>
+  
+  <div>{{#if isLoggedIn}}
+      {{#if isAdmin}}
+        <form action="/projects/update/{{project.pid}}" method="post">
+          <fieldset>
+            <label class="log-text" for="projname">Project name: </label> <br/>
+            <input class="style-log" type="text" name="projname" id="projname" value="{{project.pname}}" required="required"/> <br>
+            
+            <label class="log-text" for="projdesc">Project description: </label>
+            <br>
+            <textarea class="style-log" name="projdesc" id="projdesc" cols="30" rows="3" required="required">{{project.pdesc}}</textarea>
+            <br>
+
+            <label class="log-text" for="projtype">Project type: </label><br/>
+            <select class="style-log" type="text" name="projtype" id="projtype" required="required">
+              <option value="other"{{#if (typeO project.ptype)}} {{/if}}>Other</option>
+              <option value="university assignment"{{#if (typeU project.ptype)}} {{/if}}>University assignment</option>
+            </select>
+            <br>
+
+            <label class="log-text" for="projimg">Project image URL: </label><br/>
+            <input class="style-log" type="text" name="projimg" id="projimg" placeholder="/img/" value="{{project.pimgURL}}" required="required"/>
+          </fieldset>
+
+          <input class="button" type="submit" value="Modify project" />
+        </form>
+      {{else}}
+        <p>Only the admin can modify a project.</p>
+      {{/if}}
+    {{else}}
+      <p>Please login first <br/>
+        On the
+        <a href="/login">login page.</a></p>
+    {{/if}}</div>
+</div>
+</div>

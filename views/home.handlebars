@@ -1,11 +1,15 @@
 <div id="home">
-    <div class="intro">
-        <h1>Salut! 
-         Welcome to my cave! </h1></div>
-         <div class="pic-container">
-        <img class="picofme" src="/img/me2.jpeg" alt="pic of me"/></div>
-        <div class="outro">
-            <h2>Have fun exploring!</h2>
-        </div> 
-</div>        
-
+  <div class="intro">
+    {{#if isLoggedIn}}
+      <h1>Salut, {{name}}! </h1>
+    {{else}}
+      <h1>Salut!</h1>
+    {{/if}}
+  </div>
+  <div class="pic-container">
+    <img class="picofme" src="/img/me2.jpeg" alt="pic of me" />
+  </div>
+  <div class="outro">
+    <h2>Have fun exploring!</h2>
+  </div>
+</div>

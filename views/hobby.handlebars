@@ -1,10 +1,14 @@
  <div id="hobby">
- <div class="title"> <h1 class="hobby" >What I am passionate about</h1></div>
- <p> The table doesn't show up, but it exists in the database.
-  <br/>
-  I am very sorry. I tried everything I could think of to make it appear, but nothing worked =&lpar;
- </p>
+ <div class="title"> <h1 class="hobby" >What I am passionate about</h1>
+ {{#if isAdmin}}
+    <div>
+      <a href="/hobbies/new" class="new-button"> New hobby</a>
+    </div>
+    </div>
   <div class="hobby-container"> 
+
+    {{/if}}
+
     {{#if hasDatabaseError}}
       <div>Sorry there was a problem with the database.
         <br />
@@ -13,13 +17,19 @@
     {{else}}
       {{#each hobbies}}
         <div >
-          
           <div class="drawings-container">
-            <div><img src="{{himgURL}}" alt="{{himgURL}}" /></div>
-            <h2>{{hname}} - {{htype}}</h2>
-            <br />
-            <div class="hdesc"><p>{{hdesc}}</p></div>
-            <br />
+            <div><a href="/hobbies/{{hid}}"><img
+                  src="{{himgURL}}"
+                  alt="{{himgURL}}"
+                /></a></div>
+            <h2><a href="/hobbies/{{hid}}">{{hname}} - {{htype}}</a></h2>
+          </div>
+          <div class="modify-delete">
+            {{#if ../isAdmin}}
+            <div>
+              <a href="/hobbies/update/{{hid}}">Modify</a> - <a href="/hobbies/delete/{{hid}}">Delete</a>
+            </div>
+            {{/if}}
           </div>
         </div>
       {{/each}}

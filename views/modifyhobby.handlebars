@@ -1,0 +1,39 @@
+<div id="modifyhobby">
+  <div class="hobby">
+    <h1>Modify the hobby</h1>
+  
+  <div>{{#if isLoggedIn}}
+      {{#if isAdmin}}
+        <form action="/hobbies/update/{{hobby.hid}}" method="post">
+          <fieldset>
+            <label class="log-text" for="hobbyname">Hobby name: </label> <br/>
+            <input class="style-log" type="text" name="hobbyname" id="hobbyname" value="{{hobby.hname}}" required="required"/> <br>
+            
+            <label class="log-text" for="hobbydesc">Hobby description: </label>
+            <br>
+            <textarea class="style-log" name="hobbydesc" id="hobbydesc" cols="30" rows="3" required="required">{{hobby.hdesc}}</textarea>
+            <br>
+
+            <label class="log-text" for="hobbytype">Hobby type: </label><br/>
+            <select class="style-log" type="text" name="hobbytype" id="hobbytype" required="required">
+              <option value="other"{{#if (typeOther hobby.htype)}} {{/if}}>Other</option>
+              <option value="drawing"{{#if (typeD hobby.htype)}} {{/if}}>Drawing made by me</option>
+            </select>
+            <br>
+
+            <label class="log-text" for="hobbyimg">Hobby image URL: </label><br/>
+            <input class="style-log" type="text" name="hobbyimg" id="hobbyimg" placeholder="/img/" value="{{hobby.himgURL}}" required="required"/>
+          </fieldset>
+
+          <input class="button" type="submit" value="Modify hobby" />
+        </form>
+      {{else}}
+        <p>Only the admin can modify a hobby.</p>
+      {{/if}}
+    {{else}}
+      <p>Please login first <br/>
+        On the
+        <a href="/login">login page.</a></p>
+    {{/if}}</div>
+</div>
+</div>

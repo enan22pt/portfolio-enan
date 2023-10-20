@@ -1,235 +1,476 @@
-/* html,body{
-    height:auto;
-    overflow-y: hidden;
-} */
-
+/* Styling for the header */
 #menu {
-    list-style-type: none;
-    background-color: #154e14ba;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
-    border-radius: 20px;
-    
+  list-style-type: none;
+  background-color: #154e14ba;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 20px;
 }
 
+/* Styling for navigation links */
 nav a {
-    text-decoration: none;
-    color: black !important;
-    margin-left: 20px;
-    margin-right: 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size:25px;
+  text-decoration: none;
+  color: black !important;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 25px;
 }
 
+/* Styling for the Home section */
 #home {
-    margin: 10px;
-    background-color: #154e14ba;
-    border-radius: 20px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(4, 1fr);
-    justify-items: center;
-    padding: 10px;
-    height: 685px;
-    }
+  margin: 10px;
+  background-color: #154e14ba;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: center;
+  padding: 10px;
+  height: 685px;
+}
 
+/* Placing top text for the home page */
 .intro {
-grid-column: 2;
-grid-row: 1;
-justify-self: center;}
-
-.pic-container{
-   width: auto;
-   height: 300px;
-grid-column: 2;
-grid-row: 2;
-justify-self: center;}
-
-.picofme{
-width: auto;
-height:120%;}
-
-.outro{
-   grid-column: 2;
-   grid-row: 4;
-   justify-self: center;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
 }
 
- h1,h2,p,li{
-    color: black;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
- }
-h1{
-   text-decoration: underline;
-}
-li{
-   font-size: larger;
-}
- #about {
-    margin: 10px;
-    background-color: #154e14ba;
-    border-radius: 20px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(4,1fr);
-    justify-items: center;
-    padding: 10px;
-    height: 685px;
-    }
-
-.header{
-   grid-column: 2;
-   justify-content: center;
+/* Styling for the image container of me */
+.pic-container {
+  width: auto;
+  height: 300px;
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: center;
 }
 
-.edu{
-grid-column: 1;
-grid-row: 2;
-background-color: rgba(240, 248, 255, 0.61);
-border-radius: 20px;
-padding: 5%;
+/* Styling for the profile image */
+.picofme {
+  width: auto;
+  height: 120%;
 }
 
+/* Placing the bottom text from the home page */
+.outro {
+  grid-column: 2;
+  grid-row: 4;
+  justify-self: center;
+}
+
+/* General styling for headings, paragraphs, and list items */
+h1, h2, p, li {
+  color: black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+/* Styling for underlined headings */
+h1 {
+  text-decoration: underline;
+}
+
+/* Styling for list items */
+li {
+  font-size: larger;
+}
+
+/* Styling for the About page */
+#about {
+  margin: 10px;
+  background-color: #154e14ba;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  padding: 10px;
+  height: 685px;
+}
+
+/* Grid for the title in the About page */
+.title-a {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  padding: 10px;
+}
+
+/* Placing the main content in the About page */
+.about {
+  grid-column: 2;
+}
+
+/* Styling for the educational background */
+.about-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+}
+
+/* Styling for the education section from about page*/
+.edu {
+  grid-column: 1;
+  background-color: rgba(240, 248, 255, 0.61);
+  border-radius: 20px;
+  padding: 5%;
+  margin-bottom: 100px;
+}
+
+/* Styling for the education section title */
 .edu-title {
-   padding-left: 15%;
+  padding-left: 15%;
 }
 
-.other{
-grid-column: 3;
-grid-row: 2;
-background-color: rgba(240, 248, 255, 0.61);
-border-radius: 20px;
-padding: 5%;
+/* Styling for the Other from about page*/
+.other {
+  grid-column: 2;
+  background-color: rgba(240, 248, 255, 0.61);
+  border-radius: 20px;
+  padding: 5%;
+  margin-bottom: 100px;
 }
 
-a{
-   color: black !important;
+/* Styling for anchor links (the only thing that worked to make the links a specific color)*/
+a {
+  color: black !important;
 }
 
-.other-title{
-   padding-left: 20%;
+/* Styling for the title in the Skills from the about page */
+.skills-title {
+  padding-left: 40%;
 }
 
-.funfacts{
-grid-column: 2;
-grid-row: 3;
-background-color: rgba(240, 248, 255, 0.61);
-border-radius: 20px;
-padding: 5%;
+/* Styling for the skills from the about page */
+.skills-container {
+  grid-column: 1;
+  grid-row: 2;
+  background-color: rgba(240, 248, 255, 0.61);
+  border-radius: 20px;
+  padding: 5%;
+  margin-bottom: 20px;
 }
 
- #project {
-    margin: 10px;
-    background-color: #154e14ba;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    justify-items: center;
-    padding: 10px;
-    height: 685px;
-    }    
+/* Styling for the fun facts from the about page */
+.funfacts {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: rgba(240, 248, 255, 0.61);
+  border-radius: 20px;
+  padding: 5%;
+  margin-bottom: 20px;
+}
 
-    .projects-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      margin: 20px;
-      background-color: rgba(240, 248, 255, 0.61);
-      border-radius: 20px;
-    }
-    
-    .projects-container img {
-      max-width: 100%;
-      border-radius: 20px;
-    }
-.main-container{
-   display:grid;
-   grid-template-columns: repeat(5,1fr);
-   align-items: center;
-   text-align: center;
+/* Styling for the Projects page */
+#project {
+  margin: 10px;
+  background-color: #154e14ba;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  padding: 10px;
+  height: 685px;
 }
-.title{
-    display: grid;
-   grid-template-columns: repeat(3,1fr);  
-   justify-items: center;
-   padding: 10px;
+
+/* Grid and style for the projects page */
+.projects-container {
+  display: flex;
+  grid-row: 1;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+  background-color: rgba(240, 248, 255, 0.61);
+  border-radius: 20px;
 }
+
+/* Styling for projects images */
+.projects-container img {
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+/* Grid for the main container from the projects page */
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  text-align: center;
+}
+
+/* Styling for the title in the projects page */
+.title {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  padding: 10px;
+}
+
+/* Placing for the title in the projects page */
 .work {
-   grid-column: 2;
-}
-.pdesc{
-   font-size: 22px;
-}
- #hobby {
-    margin: 10px;
-    background-color: #154e14ba;
-    border-radius: 20px;
-    justify-items: center;
-    padding: 10px;
-    height: 685px;
-    }
-.hobby-container{
-   display:grid;
-   grid-template-columns: repeat(5,1fr);
-   align-items: center;
-   text-align: center;
-}
-.drawings-container{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   text-align: center;
-   margin: 20px;
-   background-color: rgba(240, 248, 255, 0.61);
-   border-radius: 20px;
+  grid-column: 2;
 }
 
-.hobby{
-   grid-column: 2;
+/* Styling for the description of the proj */
+.pdesc {
+  font-size: 22px;
 }
 
-.hdesc{
-   font-size: 22px;
+/* Styling for the Hobbies page */
+#hobby {
+  margin: 10px;
+  background-color: #154e14ba;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  justify-items: center;
+  padding: 10px;
+  height: 685px;
 }
- #contact {
-    margin: 10px;
-    background-color: #154e14ba;
-    border-radius: 20px;
-    justify-items: center;
-    padding: 10px;
-    height: 685px;
-    }
 
-    #login{
-      margin: 10px;
-      background-color: #154e14ba;
-      border-radius: 20px;
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      justify-items: center;
-      text-align: center;
-      padding: 10px;
-      height: 685px;
-    }
+/* Grid for the hobby containers */
+.hobby-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  text-align: center;
+}
 
+/* Styling for the drawings container */
+.drawings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+  background-color: rgba(240, 248, 255, 0.61);
+  border-radius: 20px;
+}
+
+/* Styling the images */
+.drawings-container img {
+  max-width: 100%;
+  border-radius: 20px;
+}
+
+/* Placing the hobby section */
+.hobby {
+  grid-column: 2;
+}
+
+/* Styling for the description */
+.hdesc {
+  font-size: 22px;
+}
+
+/* Styling for the Contact page */
+#contact {
+  margin: 10px;
+  background-color: #154e14ba;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  justify-items: center;
+  text-align: center;
+  padding: 10px;
+  height: 685px;
+}
+
+/* Placing the contact info*/
+.info{
+  grid-column: 2;
+}
+
+/* Styling for the Login page */
+#login {
+  margin: 10px;
+  background-color: #154e14ba;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  text-align: center;
+  padding: 10px;
+  height: 685px;
+}
+
+/* Placing the login form */
 .log {
-   grid-column: 2;
-}    
-.style-log{
-   border-radius: 10px;
-}
-.log-text{
-   color: black;
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   font-size: 22px;
+  grid-column: 2;
 }
 
-.button{
-   border-radius: 10px;
+/* Placing for the logout */
+.logout {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
 }
-.button:hover{
-   background-color: #154e14ba;
+
+/* Styling for the logout button */
+.logout-button {
+  margin: 10px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+}
+
+/* Logout button hover effect */
+.logout-button:hover {
+  background-color: #154e14ba;
+}
+
+/* Styling for centering the buttons properly after adding the log out button */
+.center {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+
+/* Styling for the unordered list */
+ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  list-style: none;
+  justify-content: center;
+  margin: 0;
+  padding: 10px;
+}
+
+/* Styling for login form elements for  the login page*/
+.style-log {
+  border-radius: 10px;
+}
+
+/* Styling for login form text for the log in page*/
+.log-text {
+  color: black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 22px;
+}
+
+/* Styling for the login button */
+.button {
+  border-radius: 10px;
+}
+
+/* Styling for login button hover effect */
+.button:hover {
+  background-color: #154e14ba;
+}
+
+/* Styling for the Each-Project page */
+#each-project {
+  margin: 10px;
+  background-color: #154e14ba;
+  border-radius: 20px;
+  justify-items: center;
+  padding: 10px;
+  height: 685px;
+}
+
+/* Flex for each-project container */
+.each-project-container {
+  display: flex;
+  grid-row: 1;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+/* Styling each-project images */
+.each-project-container img {
+  max-width: 35%;
+  border-radius: 20px;
+}
+
+/* Styling for the New Project page */
+#newproj {
+  margin: 10px;
+  background-color: #154e14ba;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  text-align: center;
+  padding: 10px;
+  height: 685px;
+}
+
+/* Placing for the projects */
+.project {
+  grid-column: 2;
+}
+
+/* Styling the new project button */
+.new-button {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 25px;
+  background-color: rgba(240, 248, 255, 0.61);
+  border-radius: 20px;
+  padding: 5px;
+}
+
+/* Styling the modify/delete buttons */
+.modify-delete {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 25px;
+  background-color: rgba(240, 248, 255, 0.61);
+  border-radius: 20px;
+  padding: 5px;
+  margin: 20px;
+}
+
+/* Styling for the Each-Hobby page*/
+#each-hobby {
+  margin: 10px;
+  background-color: #154e14ba;
+  border-radius: 20px;
+  justify-items: center;
+  padding: 10px;
+  height: 685px;
+}
+
+/* Style for new hobby page */
+#newhobby{
+  margin: 10px;
+  background-color: #154e14ba;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  text-align: center;
+  padding: 10px;
+  height: 685px;
+}
+
+/* Styling for the Modify Project page */
+#modifyproj {
+  margin: 10px;
+  background-color: #154e14ba;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  text-align: center;
+  padding: 10px;
+  height: 685px;
+}
+
+/* Styling for the Modify Project page */
+#modifyhobby {
+  margin: 10px;
+  background-color: #154e14ba;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  text-align: center;
+  padding: 10px;
+  height: 685px;
 }
